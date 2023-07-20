@@ -1,0 +1,8 @@
+query getAssetById{
+  asset(id:1){
+    id
+    name
+    type
+    description
+  }
+}

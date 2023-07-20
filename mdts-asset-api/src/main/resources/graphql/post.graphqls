@@ -1,0 +1,40 @@
+schema {
+  query: Query
+}
+
+type Asset {
+  id: ID!
+  name: String
+  type: String
+  description: String
+  creationTime: String
+}
+
+input AssetInput {
+  name: String
+  type: String
+  description: String
+}
+
+enum Sort {
+  ASC
+  DESC
+}
+
+type Message{
+  message: String!
+}
+
+# The Root Query for the application
+type Query {
+    allAssets: [Asset]   
+    allSortAssets(sort: Sort, fieldName: String): [Asset]    
+    asset(id: ID!): Asset
+}
+
+# The Root Mutation for the application
+type Mutation {
+    createAsset(input: AssetInput): Asset
+    updateAsset(id: ID!, input: AssetInput): Asset
+    deleteAsset(id: ID!): Message
+}

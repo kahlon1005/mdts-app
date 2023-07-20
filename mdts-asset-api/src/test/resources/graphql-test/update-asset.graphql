@@ -1,0 +1,8 @@
+mutation updateAsset{
+  updateAsset(id: 1, input: {name: "iPhone", type: "phone", description: "iphone 13 pro"}){
+    id
+    name
+    description
+    type
+  }
+}

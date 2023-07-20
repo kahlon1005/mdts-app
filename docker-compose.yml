@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  app:
+  api:
     build: ./mdts-asset-api
     restart: on-failure
     env_file: ./.env

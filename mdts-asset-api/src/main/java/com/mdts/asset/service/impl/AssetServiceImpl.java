@@ -1,12 +1,13 @@
 package com.mdts.asset.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.mdts.asset.model.Asset;
 import com.mdts.asset.repo.AssetRepository;
@@ -39,13 +40,27 @@ public class AssetServiceImpl implements AssetService {
 	}
 
 	@Override
-	public Asset update(Asset asset) {
+	public Asset update(Asset asset) {	
+		boolean exists = repo.existsById(asset.getId());
+		if(!exists) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset not found for update with id="+ asset.getId());
+		}
 		return repo.save(asset);
 	}
 
 	@Override
 	public void delete(Long id) {
+		Asset asset = getAssetById(id);
+		if(null == asset) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Asset not found with id="+ id);
+		}
 		repo.deleteById(id);
+		
+	}
+
+	@Override
+	public List<Asset> getAssetList() {
+		return repo.findAll();		
 	}
 
 }

@@ -1,0 +1,9 @@
+query findAllAssets{
+  allAssets{
+    id
+    name
+    type
+    description
+    creationTime
+  }
+}

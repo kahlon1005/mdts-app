@@ -10,6 +10,8 @@ public interface AssetService {
 
 	public Asset getAssetById(Long id);
 	
+	public List<Asset> getAssetList();
+	
 	public List<Asset> getAssetList(Direction direction, String fieldName);
 	
 	public Asset create(Asset asset);

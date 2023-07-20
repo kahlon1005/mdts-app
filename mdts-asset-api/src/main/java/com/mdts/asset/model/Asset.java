@@ -1,6 +1,6 @@
 package com.mdts.asset.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +45,7 @@ public class Asset {
 	
 	@Column(name="CREATED_DATE", updatable = false)
 	@CreationTimestamp
-	private Date creationTime;
+	private Timestamp creationTime;
 	
 
 }

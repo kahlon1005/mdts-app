@@ -1,0 +1,5 @@
+mutation deleteAsset{
+  deleteAsset(id: 1){
+    message
+  }
+}

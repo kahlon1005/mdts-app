@@ -1,0 +1,8 @@
+mutation createAsset{
+  createAsset(input: {name: "iPhone", type: "phone", description: "iphone 13 pro"}){
+    id
+    name
+    type
+    description
+  }
+}

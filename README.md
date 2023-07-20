@@ -25,3 +25,6 @@ curl --location --request POST 'http://localhost:6868/api/v1/asset' \
 ###postman collection 
 
 use attached postman collection for test
+import enviorment json
+import asset collection
+
